@@ -15,7 +15,7 @@ def check_password_strength(password):
     variety_score += 15 * any(char in "!@#$%^&*()" for char in password)
 
     try:
-        with open('common_words.txt', 'r') as f:
+        with open('txt/common_words.txt', 'r') as f:
             common_words = f.read().splitlines()
         if password.lower() in common_words:
             common_word_penalty = 30
@@ -46,7 +46,7 @@ def start_gui():
 
     try:
         # Load the image using PIL
-        image = Image.open('reflect.png').resize((600, 400), Image.LANCZOS)
+        image = Image.open('images/reflect.png').resize((600, 400), Image.LANCZOS)
         background_image = ImageTk.PhotoImage(image)  # Convert the PIL image to a PhotoImage
         # Use the image in the canvas
         canvas.create_image(0, 0, image=background_image, anchor="nw")
